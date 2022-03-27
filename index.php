@@ -42,19 +42,20 @@ try{
     $bio = $_POST['BIO'];
     $che = $_POST['ch'];
     $sup= implode(",",$_POST['superpower']);
-    $conn = new PDO("mysql:host=localhost;dbname=u41733", 'u47476', '3289244', array(PDO::ATTR_PERSISTENT => true));
-    $user = $conn->prepare("INSERT INTO form SET name = ?, email = ?, dob = ?, gender = ?, limbs = ?, bio = ?, che = ?");
+    $conn = new PDO("mysql:host=localhost;dbname=u47476", 'u47476', '3289244', array(PDO::ATTR_PERSISTENT => true));
+    $user = $conn->prepare("INSERT INTO forma SET name = ?, email = ?, dob = ?, gender = ?, limbs = ?, bio = ?, che = ?");
     $user -> execute([$_POST['field-name'], $_POST['field-email'], date('Y-m-d', strtotime($_POST['field-date'])), $_POST['radio-gender'], $_POST['radio-limb'], $_POST['BIO'], $_POST['ch']]);
     $id_user = $conn->lastInsertId();
 
-    $user1 = $conn->prepare("INSERT INTO super SET id = ?, super_name = ?");
+    $user1 = $conn->prepare("INSERT INTO ability SET id = ?, super_name = ?");
     $user1 -> execute([$id_user, $sup]);
+    $result = true;
 }
 catch(PDOException $e){
     print('Error : ' . $e->getMessage());
     exit();
 }
 if ($result) {
-  echo "ID №" . $id_user;
+  echo "ID_user №" . $id_user;
 }
 ?>
