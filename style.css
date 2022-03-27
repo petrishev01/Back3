@@ -1,0 +1,16 @@
+.main {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  width: 100%;
+}
+
+
+
+.block_4 {
+  max-width: 800px;
+  background-color: rgb(200, 199, 198);
+  margin: 0 auto;
+  margin-top: 20px;
+  padding: 10px;
+
+}
